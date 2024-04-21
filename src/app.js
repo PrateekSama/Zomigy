@@ -1,38 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import img from './Zom_logo.jpg'
+import Header from "./components/Header";
+import Body from "./components/Body";
 
-const Header =()=>{
-    return(
-        <div className="header">
-            <div className="logo-container">
-                 <img className="logo" src={img}>
-                 </img>
-            </div>
-            <div className="nav-items">
-                <ul>
-                    <li>Home</li>
-                    <li>About us</li>
-                    <li>Contact us</li>
-                    <li>Cart</li>
-                </ul>
-            </div>
 
-        </div>
-    );
-};
-const ResturantCard = (props) =>{
-    const { resData } = props;
-    return(
-        <div className="res-card">
-            <img className="res-logo" alt ="res-logo" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+resData.data.cloudinaryImageId}></img>
-            <h3>{resData.data.name}</h3>
-            <h4>{resData.data.cuisines.join(", ")}</h4>
-            <h4>{resData.data.totalRatingsString} stars</h4>
-            <h4>{resData.data.deliveryTime}minutes</h4>
-        </div>
-    );
-};
+
 
 const resList=[
     {   
@@ -765,23 +737,6 @@ const resList=[
       subtype: "basic",
     },
   ];
-
-
-const Body = () => {
-    return(
-        <div className="body">
-            <div className="search">Search</div>
-            <div className="res-container"> 
-            {
-                resList.map((resturant)=>(
-                    <ResturantCard key ={resturant.data.id} resData={resturant} />
-                ))
-            }
-            </div>
-        </div>
-    );
-};
-
 
 const AppLayout =()=>{
     return( 
